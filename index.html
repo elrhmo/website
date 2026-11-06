@@ -1,199 +1,95 @@
-<!DOCTYPE HTML>
-<!--
-	Prologue by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>MoMappingNoProblems</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Elliot Moses</title>
+	<meta name="description" content="Elliot Moses, Data Engineer: projects in spatial data, mapping and transport.">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-		<!-- Header -->
-			<div id="header">
-
-				<div class="top">
-
-					<!-- Logo -->
-						<div id="logo">
-							<span class="image avatar48"><img src="images/avatar.jpg" alt="" /></span>
-							<h1 id="title">Mo Mapping</h1>
-							<p>GIS Analyst</p>
-						</div>
-
-					<!-- Nav -->
-						<nav id="nav">
-							<ul>
-								<li><a href="#top" id="top-link"><span class="icon solid fa-home">Intro</span></a></li>
-								<li><a href="#portfolio" id="portfolio-link"><span class="icon solid fa-th">Projects</span></a></li>
-								<li><a href="#about" id="about-link"><span class="icon solid fa-user">About Me</span></a></li>
-								<li><a href="#contact" id="contact-link"><span class="icon solid fa-envelope">Contact</span></a></li>
-							</ul>
-						</nav>
-
-				</div>
-
-				<div class="bottom">
-
-					<!-- Social Icons -->
-						<ul class="icons">
-							<li><a href="https://www.linkedin.com/in/elliot-moses-478712169/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-							<li><a href="https://github.com/elrhmo/" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-						</ul>
-
-				</div>
-
+	<header class="intro">
+		<div class="intro-top">
+			<img class="avatar" src="images/avatar.jpg" alt="">
+			<div>
+				<h1>Elliot Moses</h1>
+				<p class="role">Data Engineer</p>
+				<ul class="icons">
+					<li><a href="https://www.linkedin.com/in/elliot-moses-478712169/" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></li>
+					<li><a href="https://github.com/elrhmo/" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3"/></svg></a></li>
+					<li><a href="mailto:elliotmoses8@gmail.com" aria-label="Email" title="elliotmoses8@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></a></li>
+				</ul>
 			</div>
+		</div>
+	</header>
 
-		<!-- Main -->
-			<div id="main">
+	<main>
+		<h2 class="section-title">Projects</h2>
 
-				<!-- Intro -->
-					<section id="top" class="one dark cover">
-						<div class="container">
+		<ul class="projects">
+			<li>
+				<a href="projects/bus-departure-board/">
+					<img src="projects/bus-departure-board/thumb.jpg" alt="">
+					<div>
+						<h3>Bus Departure Board using a Raspberry Pi Zero 2 W</h3>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="https://elrhmo.github.io/subsea-cable-sabotage-leaflet-storymap/">
+					<img src="images/storymap-thumb.jpg" alt="">
+					<div>
+						<h3>Cable Sabotage Storymap ↗</h3>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="projects/world-cities/">
+					<img src="projects/world-cities/thumb.jpg" alt="">
+					<div>
+						<h3>World Cities</h3>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="projects/sourdough-calculator/">
+					<img src="projects/sourdough-calculator/thumb.jpg" alt="">
+					<div>
+						<h3>Sourdough Calculator</h3>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="projects/greggs-vs-pret/">
+					<img src="projects/greggs-vs-pret/thumb.jpg" alt="">
+					<div>
+						<h3>Greggs vs Pret</h3>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="projects/santander-bike-heatmap/">
+					<img src="projects/santander-bike-heatmap/thumb.jpg" alt="">
+					<div>
+						<h3>TfL Santander Bike Analysis Calendar Heat Plot</h3>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="projects/tfl-arrivals/">
+					<img src="projects/tfl-arrivals/thumb.jpg" alt="">
+					<div>
+						<h3>TfL App</h3>
+					</div>
+				</a>
+			</li>
+		</ul>
+	</main>
 
-							<header>
-								<h2 class="alt">Mo Mapping No Problems</h2>
-								<br>
-								<h5> Spatial data enthusiast displaying data through maps </h5>
-							</header>
+	<footer class="site-footer">
+		&copy; 2026 Elliot Moses
+	</footer>
 
-							<footer>
-								<a href="#portfolio" class="button scrolly">Projects</a>
-							</footer>
-
-						</div>
-					</section>
-
-				<!-- Portfolio -->
-					<section id="portfolio" class="two">
-						<div class="container">
-
-							<header>
-								<h2>Projects</h2>
-							</header>
-
-							<p>Find out about some of my personal passion projects below</p>
-
-							<div class="row">
-								<div class="col-4 col-12-mobile">
-									<article class="item">
-										<a href="projects/p1.html" target="_blank" class="image fit"><img src="images/p1_img1.jpg" alt=""/></a>
-										<header>
-											<h3>TfL App</h3>
-	
-										</header>
-									</article>
-									<article class="item">
-										<a href="p3.html" class="image fit"><img src="images/p3_img1.jpg" alt="" /></a>
-										<header>
-											<h3>Greggs vs Pret</h3>
-										</header>
-									</article>
-									<article id="p7" class="item">
-										<a href="p7.html" target="_blank" class="image fit"><img src="images/p7_img1.jpg" alt="" /></a>
-										<header>
-											<h3>Bus Departure Board using a Raspberry Pi Zero 2 W</h3>
-										</header>
-									</article>
-								</div>
-								<div class="col-4 col-12-mobile">
-									<article class="item">
-										<a href="p2.html" class="image fit"><img src="images/p2_img1.jpg" alt="" /></a>
-										<header>
-											<h3>Tfl Santandar Bike Analysis Calendar Heat Plot</h3>
-										</header>
-									</article>
-									<article class="item">
-										<a href="p5.html" class="image fit"><img src="images/p5_img1.jpg" alt="" /></a>
-										<header>
-											<h3>World Cities</h3>
-											
-										</header>
-									</article>
-								</div>
-								<div class="col-4 col-12-mobile">
-									<article class="item">
-										<a href="projects/p4.html" target="_blank" class="image fit"><img src="images/p4_img1.jpg" alt="" /></a>
-										<header>
-											<h3>Sourdough Calculator</h3>
-										</header>
-									</article>
-									<article class="item">
-										<a href="https://elrhmo.github.io/subsea-cable-sabotage-leaflet-storymap/" target="_blank" class="image fit"><img src="images/p6_img1.jpg" alt="" /></a>
-										<header>
-											<h3>Cable Sabotage Storymap</h3>
-										</header>
-									</article>
-								</div>
-							</div>
-
-
-
-							
-						</div>
-					</section>
-
-				<!-- About Me -->
-					<section id="about" class="three">
-						<div class="container">
-
-							<header>
-								<h2>About Me</h2>
-							</header>
-
-							<a href="#" class="image featured"><img src="images/pic08.jpg" alt="" /></a>
-
-							<p>GIS Analyst working in the renewable energy and geosciences sector, passionate about using spatial data to solve problems. 
-								I'm interested in statistics, data visualisations, and web applications, particularly when they support spatial endeavors. 
-								I'm also enthusiast about mobility and transport data, developing understanding of how people move around urban areas.</p>
-
-						</div>
-
-						<div class="timeline">
-
-					</section>
-
-				<!-- Contact -->
-					<section id="contact" class="four">
-						<div class="container">
-
-							<header>
-								<h2>Contact</h2>
-							</header>
-
-							<p>Don't hesitate to reach out</p>
-
-								</div>
-							</form>
-
-						</div>
-					</section>
-
-			</div>
-
-		<!-- Footer -->
-			<div id="footer">
-
-				<!-- Copyright -->
-					<ul class="copyright">
-						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
+</body>
 </html>

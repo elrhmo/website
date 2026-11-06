@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>TfL local information app · Elliot Moses</title>
+	<link rel="stylesheet" href="../../style.css">
+	<!-- Leaflet -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+		integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+		crossorigin="">
+	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+		integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+		crossorigin=""></script>
+</head>
+<body>
+
+	<header class="site-header">
+		<a class="name" href="../../">Elliot Moses</a>
+		<ul class="icons">
+			<li><a href="https://www.linkedin.com/in/elliot-moses-478712169/" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></li>
+			<li><a href="https://github.com/elrhmo/" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3"/></svg></a></li>
+			<li><a href="mailto:elliotmoses8@gmail.com" aria-label="Email" title="elliotmoses8@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></a></li>
+		</ul>
+	</header>
+
+	<main class="project">
+		<a class="back" href="../../">&larr; All projects</a>
+		<h1>TfL local information app</h1>
+
+		<button id="apiButton_1">Sandycoombe Road - East Bound</button>
+		<div id="output_1" class="arrivals"></div>
+
+		<button id="apiButton_2">Sandycoombe Road - West Bound</button>
+		<div id="output_2" class="arrivals"></div>
+
+		<button id="apiButton_3">Marble Hill Park / Crown Road - West Bound</button>
+		<div id="output_3" class="arrivals"></div>
+
+		<div id="map" class="wide"></div>
+	</main>
+
+	<footer class="site-footer">
+		&copy; 2026 Elliot Moses
+	</footer>
+
+<script>
+    // Function to fetch data from the provided API URL and display it in the specified output div
+    function fetchData(apiUrl, outputId) {
+        fetch(apiUrl) // Fetch data from the API URL
+            .then(response => {
+                // Check if the response is successful (status code 200)
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json(); // Parse response as JSON
+            })
+            .then(data => {
+                const outputDiv = document.getElementById(outputId); // Select the output div by ID
+                outputDiv.innerHTML = ''; // Clear previous output
+
+                // Sort the data array by timeToStation property
+                data.sort((a, b) => a.timeToStation - b.timeToStation);
+
+                // Iterate through each prediction and display it
+                data.forEach(prediction => {
+                    const lineName = prediction.lineName;
+                    const destinationName = prediction.destinationName;
+                    const timeToStationSeconds = prediction.timeToStation;
+
+                    // Convert time to minutes or display "Due" if time is less than 1 minute
+                    let timeToStationMinutes;
+                    if (timeToStationSeconds < 60) {
+                        timeToStationMinutes = "Due";
+                    } else {
+                        timeToStationMinutes = Math.round(timeToStationSeconds / 60);
+                    }
+
+                    // Create div and span elements to display prediction details
+                    const predictionDiv = document.createElement('div');
+                    predictionDiv.style.display = 'flex';
+                    predictionDiv.style.alignItems = 'center';
+
+                    const lineSpan = document.createElement('span');
+                    const destinationSpan = document.createElement('span');
+                    const timeSpan = document.createElement('span');
+
+                    // Set text content and styles for each span
+                    lineSpan.textContent = lineName;
+                    destinationSpan.textContent = destinationName;
+                    timeSpan.textContent = timeToStationMinutes;
+
+                    lineSpan.style.width = '100px';
+                    destinationSpan.style.width = '250px';
+
+                    lineSpan.style.marginRight = '10px';
+                    destinationSpan.style.marginRight = '10px';
+
+                    // Append spans to the prediction div
+                    predictionDiv.appendChild(lineSpan);
+                    predictionDiv.appendChild(destinationSpan);
+                    predictionDiv.appendChild(timeSpan);
+
+                    // Append the prediction div to the output container
+                    outputDiv.appendChild(predictionDiv);
+                });
+            })
+            .catch(error => {
+                // Handle any errors that occur during the fetch
+                console.error('There was a problem with the fetch operation:', error);
+            });
+    }
+
+    // Add event listeners to the buttons to trigger fetchData function with respective API URLs and output IDs
+    document.getElementById('apiButton_1').addEventListener('click', function() {
+        const apiUrlE = 'https://api.tfl.gov.uk/StopPoint/490011922E/Arrivals';
+        fetchData(apiUrlE, 'output_1'); // Pass 'output_1' as the second argument
+    });
+
+    document.getElementById('apiButton_2').addEventListener('click', function() {
+        const apiUrlW = 'https://api.tfl.gov.uk/StopPoint/490011922W/Arrivals';
+        fetchData(apiUrlW, 'output_2'); // Pass 'output_2' as the second argument
+    });
+
+    document.getElementById('apiButton_3').addEventListener('click', function() {
+        const apiUrlW = 'https://api.tfl.gov.uk/StopPoint/490005841T/Arrivals';
+        fetchData(apiUrlW, 'output_3'); // Pass 'output_3' as the second argument
+    });
+
+
+
+    //*** Leaflet***
+    // initialise Leaflet map 
+    var map = L.map('map').setView([51.455302, -0.320010], 15);
+
+    // add OSM tile layer basemap
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    // Adding markers
+    //var marker = L.marker([51.454289, -0.316048]).addTo(map);
+
+    // coordinate array with popup text
+    let points = [
+    [51.454289, -0.316048, "Bus Stop"],
+    [51.454217, -0.316409, "Bus Stop"],
+    [51.451705, -0.316795, "Bus Stop"],
+    [52.23040500771883, 21.012146472930908, "point 4"],
+    ];
+
+    // loop that adds many markers to the map
+    for (let i = 0; i < points.length; i++) {
+        const [lat, lng, popupText] = points[i];
+
+        marker = new L.marker([lat, lng]).bindPopup(popupText).addTo(map);
+    }
+    
+</script>
+
+</body>
+</html>

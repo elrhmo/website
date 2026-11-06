@@ -1,0 +1,327 @@
+/* Elliot Moses — site styles */
+
+:root {
+  --bg: #fafaf8;
+  --text: #1c1d1f;
+  --muted: #5f6368;
+  --border: #e3e3df;
+  --surface: #f0f0ec;
+  --accent: #0f766e;
+  --accent-hover: #0b5a54;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #151716;
+    --text: #e6e7e5;
+    --muted: #9ea3a6;
+    --border: #2c302e;
+    --surface: #1f2221;
+    --accent: #5cc8bd;
+    --accent-hover: #8adcd3;
+    color-scheme: dark;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  max-width: 46rem;
+  padding: 0 1.25rem;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+a {
+  color: var(--accent);
+  text-underline-offset: 0.15em;
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.25;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+code {
+  background: var(--surface);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/* Social icons */
+
+.icons {
+  display: flex;
+  gap: 0.9rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.icons a {
+  display: block;
+  color: var(--muted);
+}
+
+.icons a:hover {
+  color: var(--accent);
+}
+
+.icons svg {
+  display: block;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Slim header (project pages) */
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.site-header .name {
+  color: var(--text);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.site-header .name:hover {
+  color: var(--accent);
+}
+
+/* Home intro */
+
+.intro {
+  padding: 3.5rem 0 1rem;
+}
+
+.intro-top {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.avatar {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.intro h1 {
+  margin: 0;
+  font-size: 1.9rem;
+}
+
+.intro .role {
+  margin: 0.15rem 0 0.5rem;
+  color: var(--muted);
+}
+
+/* Section headings */
+
+.section-title {
+  margin: 2.5rem 0 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Project list */
+
+.projects {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.projects a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0 -0.75rem;
+  padding: 0.75rem;
+  border-radius: 10px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.projects a:hover {
+  background: var(--surface);
+}
+
+.projects img {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.projects h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--accent);
+}
+
+.projects a:hover h3 {
+  color: var(--accent-hover);
+}
+
+.projects p {
+  margin: 0.2rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Project pages */
+
+.back {
+  display: inline-block;
+  margin-top: 2rem;
+  font-size: 0.95rem;
+}
+
+.project h1 {
+  margin: 0.75rem 0 1.5rem;
+  font-size: 2rem;
+}
+
+.project figure {
+  margin-block: 2rem;
+  margin-inline: 0;
+}
+
+.project figure img {
+  display: block;
+  border-radius: 8px;
+}
+
+.project figcaption {
+  margin-top: 0.5rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.embed {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+/* Break out of the text column for maps and embeds */
+.project .wide {
+  width: min(64rem, 100vw - 2.5rem);
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+#map {
+  height: 420px;
+  margin-block: 2rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.arrivals {
+  margin: 0.5rem 0 1.25rem;
+  font-size: 0.95rem;
+}
+
+.note,
+.references {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.references p {
+  overflow-wrap: anywhere;
+}
+
+/* Forms and buttons (apps) */
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border: 0;
+  border-radius: 6px;
+  background: var(--accent);
+  color: var(--bg);
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--accent-hover);
+}
+
+input {
+  width: 100%;
+  max-width: 16rem;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text);
+}
+
+details {
+  margin: 0.75rem 0;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+summary {
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Footer */
+
+.site-footer {
+  margin-top: 4rem;
+  padding: 1.5rem 0 2.5rem;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.875rem;
+}

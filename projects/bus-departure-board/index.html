@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>TfL Bus Departure Board · Elliot Moses</title>
+	<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+
+	<header class="site-header">
+		<a class="name" href="../../">Elliot Moses</a>
+		<ul class="icons">
+			<li><a href="https://www.linkedin.com/in/elliot-moses-478712169/" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></li>
+			<li><a href="https://github.com/elrhmo/" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3"/></svg></a></li>
+			<li><a href="mailto:elliotmoses8@gmail.com" aria-label="Email" title="elliotmoses8@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></a></li>
+		</ul>
+	</header>
+
+	<main class="project">
+		<a class="back" href="../../">&larr; All projects</a>
+		<h1>TfL Bus Departure Board</h1>
+
+		<p>I recently set up a live Transport for London (TfL) departure board for a local bus stop using a Raspberry Pi Zero 2 W and an OLED display.
+			This project drew inspiration from two GitHub repositories:
+			<a href="https://github.com/jfoot/Bus-Departure-Board">Bus-Departure-Board</a> by jfoot and
+			<a href="https://github.com/chrishutchinson/train-departure-screen">Train-Departure-Screen</a> by chrishutchinson.</p>
+
+		<h2>Hardware Required</h2>
+		<ul>
+			<li>Raspberry Pi Zero 2 W: Mini computer.</li>
+			<li>SD Card: To run Raspberry Pi OS.</li>
+			<li>OLED Display: To show the live departure times.</li>
+			<li>Pin Wires: To connect the Pi to the display.</li>
+		</ul>
+
+		<h2>How It Works</h2>
+		<p>The setup involves two Python scripts that run automatically when the Raspberry Pi boots up. The first script fetches live bus departure data from the TfL API using the python <code>requests</code> module. The second script displays this data on the OLED screen with the help of the <code>luma.oled</code> library. The display updates every few seconds to ensure the information remains current.</p>
+		<p>The project also uses <code>rc.local</code> to automate script execution when the Pi is turned on, making the departure board a hands-off tool for my parents to quickly check bus times.</p>
+		<p>To give the departure board a polished look, I enclosed the screen and Pi in a case that I made from black foam. This not only made it look more like a real departure board but also kept everything neatly contained. I also added an on/off switch, allowing the board to be easily powered up or down.</p>
+
+		<figure><img src="wiring.jpg" alt="The Raspberry Pi wired to the OLED display, showing live departures"></figure>
+		<figure><img src="case.jpg" alt="The finished departure board in its black foam case, with an on/off switch"></figure>
+		<figure><img src="board.jpg" alt="The departure board in use, showing live departures"></figure>
+	</main>
+
+	<footer class="site-footer">
+		&copy; 2026 Elliot Moses
+	</footer>
+
+</body>
+</html>
