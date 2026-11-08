@@ -1,6 +1,6 @@
 # Elliot Moses — personal website
 
-Source for [elliotmoses.dev](https://elliotmoses.dev), hosted on Cloudflare Pages.
+Source for [elliotmoses.dev](https://elliotmoses.dev), hosted on Cloudflare Workers (config in `wrangler.jsonc`).
 
 Plain HTML and one stylesheet (`style.css`). No build step or dependencies.
 
