@@ -1,6 +1,6 @@
 # Elliot Moses — personal website
 
-Source for [momappingnoproblems.com](https://momappingnoproblems.com), hosted on GitHub Pages.
+Source for [elliotmoses.dev](https://elliotmoses.dev), hosted on Cloudflare Workers (config in `wrangler.jsonc`).
 
 Plain HTML and one stylesheet (`style.css`). No build step or dependencies.
 
@@ -27,6 +27,6 @@ projects/bus-departure-board/
 
 ## Add a project
 
-1. Copy an existing folder in `projects/` (e.g. `projects/world-cities/`) to `projects/<new-name>/`.
+1. Copy an existing folder in `projects/` (e.g. `projects/sourdough-calculator/`) to `projects/<new-name>/`.
 2. Edit its `index.html`, and replace `thumb.jpg` and any images (keep images around 1200px wide).
 3. Add an entry to the project list in `index.html` (newest first).
